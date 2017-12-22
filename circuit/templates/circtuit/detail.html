@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block title %}
+
+{% endblock %}
+<link rel="stylesheet" href="{% static '/css/lightbox.css' %}">
+{% block content %}
+    <div class="mycontainer circuitdetaill">
+        <h1>{{ object.Titre }}</h1>
+        <div class="linediveder"></div>
+        {% for foo in object.circtuidetail_set.all %}
+            <div class="circuitext col-xs-12 col-sm-12 col-md-6 col-lg-6 {% cycle 'class_left' 'class_right'%}">
+                <h3>{{ foo.titre_circuit }}</h3>
+                <p>{{ foo.Description|linebreaks }}</p>
+            </div>
+        {% endfor %}
+    </div>
+    <div class="linebreak "></div>
+      <div class="gallery mycontainer">
+        <div class="row">
+            {% for foo in object.imageupload_set.all %}
+                <div class="detail_gallerie col-xs-12 col-sm-3 col-md-3 col-lg-3">
+                    <img src="{{ foo.relationship.url }}" alt="{{ object.Titre }}">
+                </div>
+            {% endfor %}
+        </div>
+      </div>
+
+    <div class="lightbox">
+        <i class="fa fa-times close-ico" aria-hidden="true"></i>
+        <div class="lightboxcontainer">
+            <img src="" id="gallery_lightbox"  alt="">
+            <div  id="next"><i class="fa fa-angle-right" aria-hidden="true"></i></div>
+            <div  id="prev"><i class="fa fa-angle-left" aria-hidden="true"></i></div>
+        </div>
+    </div>
+                    {% if user.is_authenticated %}
+
+        <a href="{% url 'moulatitcircuit:CircuitUpdate' pk=object.pk %}">Modifier</a>
+        <a href="{% url 'moulatitcircuit:Circuitdelete' pk=object.pk %}">Supprimer</a>
+        {% endif %}
+
+{% endblock %}
+{% block script %}
+{% endblock script %}

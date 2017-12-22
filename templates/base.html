@@ -1,0 +1,63 @@
+{% load staticfiles %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Title{% endblock %}</title>
+    {% block css %}
+
+    {% endblock css %}
+    <link href="https://fonts.googleapis.com/css?family=Cairo:300,400,600,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'css/style.css'%}">
+</head>
+<body>
+    <nav id="homenav">
+        <div class="mycontainer">
+            <img src="{{footer.logo.url}}" id="logo" alt="">
+            <ul>
+                <li><a href="{%url 'moulatitcircuit:CircuitList'%}">Accueil</a></li>
+                <li><a href="{%url 'moulatitcircuit:CircuitList'%}#Nosircuit">Nos Circuits</a></li>
+                <li><a href="{%url 'moulatitcircuit:PrisenchargeList'%}">Prise en charge</a></li>
+                <li><a href="{%url 'moulatitcircuit:PrisenchargeList'%}">Infos-voyage</a></li>
+                <li><a href="">Contact</a></li>
+                {% if user.is_authenticated %}
+                    <li><a href="{% url 'moulatitcircuit:Circtuitest' %}">Ajouter Un Circuit</a></li>
+                    <li><a href="{% url 'moulatitcircuit:HomeUpdate' pk=1 %}">Modifier Les Infos</a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </nav>
+    {% block content %}
+
+    {% endblock content%}
+<footer>
+    <div class="mycontainer">
+        <div class="divers  col-xs-12 col-sm-4 col-md-4 col-lg-4">
+            <h1>Social</h1>
+            <p>Retrouvez nous sur les réseaux sociaux</p>
+            <a href="{{ footer.facebook }}" class="btneffect">Facebook</a>
+            <a href="{{ footer.Instagram }}" class="btneffect">Instagram</a>
+        </div>
+        <div class="divers  col-xs-12 col-sm-4 col-md-4 col-lg-4">
+            <h1>Cordonnées</h1>
+            <p>Email: {{ footer.Email }}</p>
+            <p>Tél / Fax : {{ footer.Fax }}</p>
+            <p>Adress: {{ footer.Mobile }}</p>
+        </div>
+        <div class="divers  col-xs-12 col-sm-4 col-md-4 col-lg-4">
+            <h1>Adresse</h1>
+            <p>{{ footer.Adress }}</p>
+        </div>
+    </div>
+</footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+{% block script %}
+
+{% endblock script%}
+<script src="{% static '/js/myapp.js' %}"></script>
+
+</body>
+</html>

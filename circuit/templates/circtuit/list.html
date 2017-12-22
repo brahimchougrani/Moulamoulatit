@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% block title %}
+
+{% endblock %}
+{% block content %}
+    <div id="carousel" class="carousel slide carousel-fade" data-ride="carousel">
+    <ol class="carousel-indicators">
+        <li data-target="#carousel" data-slide-to="0" class="active"></li>
+        <li data-target="#carousel" data-slide-to="1"></li>
+        <li data-target="#carousel" data-slide-to="2"></li>
+    </ol>
+    <!-- Carousel items -->
+    <div class="carousel-inner">
+        <div class="active item" style="background: url('{{ footer.img_1.url }}') no-repeat">
+            <div class="slidercontent">
+            <h1>Test1</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias aperiam, assumenda deserunt dolor, ea, excepturi inventore ipsa laudantium modi odio perspiciatis quam qui quibusdam quisquam quod quos sunt veritatis voluptatibus?</p>
+        </div>
+        </div>
+        <div class="item" style="background: url('{{ footer.img_2.url }}') no-repeat">
+        <div class="slidercontent">
+            <h1>Test2</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias aperiam, assumenda deserunt dolor, ea, excepturi inventore ipsa laudantium modi odio perspiciatis quam qui quibusdam quisquam quod quos sunt veritatis voluptatibus?</p>
+        </div>
+        </div>
+        <div class="item"  style="background: url('{{ footer.img_3.url }}') no-repeat">
+            <div class="slidercontent">
+            <h1>Test3</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias aperiam, assumenda deserunt dolor, ea, excepturi inventore ipsa laudantium modi odio perspiciatis quam qui quibusdam quisquam quod quos sunt veritatis voluptatibus?</p>
+        </div>
+        </div>
+    </div>
+    <!-- Carousel nav -->
+    <a class="carousel-control left" href="#carousel" data-slide="prev">&lsaquo;</a>
+    <a class="carousel-control right" href="#carousel" data-slide="next">&rsaquo;</a>
+</div>
+
+    <div class="mycontainer">
+        <div class="circtui_aceuille">
+        <h1 style="text-align: center">Nos Circuits</h1>
+            <div class="row circuit_preview">
+                {% for foo in object_list %}
+                    <div class=" tchep col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                        <div class="imgcontainer">
+                            {{ foo.img}}
+                        </div>
+                        <div class="circdetail">
+                            <a href="{{ foo.get_absolute_url }}">{{ foo.Titre }}</a>
+                            <p>{{ foo.Description|linebreaks }}</p>
+                        </div>
+                        <a href="{{ foo.get_absolute_url }}" class="btneffect">Lire La Suite</a>
+                    </div>
+                {% endfor %}
+            </div>
+
+        </div>
+    </div>
+
+{% endblock %}

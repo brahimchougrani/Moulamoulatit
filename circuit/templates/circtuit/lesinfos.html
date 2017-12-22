@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block title %}
+
+{% endblock %}
+
+{% block content %}
+    <div class="mycontainer">
+        {% for foo in object_list %}
+            <h1 style="text-align: center">{{ foo.titre }}</h1>
+            <div class="row">
+            {% for foo2 in foo.prisencharche_set.all %}
+                <div class="circuitext col-xs-12 col-sm-12 col-md-6 col-lg-6 {% cycle 'class_left' 'class_right' %}">
+                    <h3>{{foo2.titre_circuit}}</h3>
+                    <p>{{foo2.Description|linebreaks}}</p>
+                    <div class="linebreak"></div>
+                </div>
+            {% endfor %}
+            <div class="linebreak"></div>
+                <a href="{% url 'moulatitcircuit:PrisenchargeUpdate' pk=foo.pk %}">Modifier</a>
+                <a href="{% url 'moulatitcircuit:PrisenchargeDeleteView' pk=foo.pk %}">Supprimer</a>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
