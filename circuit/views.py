@@ -100,14 +100,14 @@ class CircuitDetail(DetailView):
 class HomeInfo(LoginRequiredMixin,CreateView):
     model = HomeDetail
     template_name = 'circtuit/myform.html'
-    fields = ['logo', 'facebook','Instagram','Email','Fax','Mobile','Adress','img_1','description1','img_2','description2','img_3','description3']
+    fields = ['logo', 'facebook','Instagram','Email','Fax','Mobile','Adress','img_1','description1','img_2','description2','img_3','description3','histoire']
     success_url = ('.')
 
 
 class HomeUpdate(LoginRequiredMixin,UpdateView):
     model = HomeDetail
     template_name = 'circtuit/myform.html'
-    fields = ['logo', 'facebook','Instagram','Email','Fax','Mobile','Adress','img_1','description1','img_2','description2','img_3','description3']
+    fields = ['logo', 'facebook','Instagram','Email','Fax','Mobile','Adress','img_1','description1','img_2','description2','img_3','description3','histoire']
     success_url = ('.')
 
 class Prisencharge(LoginRequiredMixin,CreateView):

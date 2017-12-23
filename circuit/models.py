@@ -74,6 +74,7 @@ class HomeDetail(models.Model):
     description2 = models.TextField()
     img_3= models.ImageField()
     description3 = models.TextField()
+    histoire = models.TextField()
     def __str__(self):
         return self.Adress
 
