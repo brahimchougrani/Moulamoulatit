@@ -17,10 +17,11 @@ class Circuit(models.Model):
         })
 
     def get_first_image(self):
-        if self.imageupload_set.all()[0]:
-            return self.imageupload_set.all()[0].relationship.url
+        if self.imageupload_set.all().first():
+            return self.imageupload_set.all().first().relationship.url
         else:
             return None
+
 class CircuitParts(models.Model):
     titre_circuit = models.CharField(max_length=255)
     Description = models.TextField(null=True)

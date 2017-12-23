@@ -7,6 +7,7 @@
     <div class="mycontainer">
         {% for foo in object_list %}
             <h1 style="text-align: center">{{ foo.titre }}</h1>
+            <div class="linediveder"></div>
             <div class="row">
             {% for foo2 in foo.prisencharche_set.all %}
                 <div class="circuitext col-xs-12 col-sm-12 col-md-6 col-lg-6 {% cycle 'class_left' 'class_right' %}">
@@ -15,10 +16,12 @@
                     <div class="linebreak"></div>
                 </div>
             {% endfor %}
-            <div class="linebreak"></div>
-                <a href="{% url 'moulatitcircuit:PrisenchargeUpdate' pk=foo.pk %}">Modifier</a>
-                <a href="{% url 'moulatitcircuit:PrisenchargeDeleteView' pk=foo.pk %}">Supprimer</a>
-            </div>
+            {% if is_authenticated %}
+                <div class="linebreak"></div>
+                    <a href="{% url 'moulatitcircuit:PrisenchargeUpdate' pk=foo.pk %}">Modifier</a>
+                    <a href="{% url 'moulatitcircuit:PrisenchargeDeleteView' pk=foo.pk %}">Supprimer</a>
+                </div>
+            {% endif %}
         {% endfor %}
     </div>
 {% endblock %}

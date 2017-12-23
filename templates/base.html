@@ -14,40 +14,48 @@
 <body>
     <nav id="homenav">
         <div class="mycontainer">
-            <img src="{{footer.logo.url}}" id="logo" alt="">
+            <a href='{%url 'moulatitcircuit:CircuitList'%}' id="logolink"><img src="{{footer.logo.url}}" id="logo" alt="Moulamoulatit logo"> MoulaMoulatit </a>
             <ul>
                 <li><a href="{%url 'moulatitcircuit:CircuitList'%}">Accueil</a></li>
                 <li><a href="{%url 'moulatitcircuit:CircuitList'%}#Nosircuit">Nos Circuits</a></li>
-                <li><a href="{%url 'moulatitcircuit:PrisenchargeList'%}">Prise en charge</a></li>
+                <li><a href="{%url 'moulatitcircuit:PrisenchargeList'%}#PrisOncharge">Prise en charge</a></li>
                 <li><a href="{%url 'moulatitcircuit:PrisenchargeList'%}">Infos-voyage</a></li>
-                <li><a href="">Contact</a></li>
+                <li><a href="#contact">Contact</a></li>
                 {% if user.is_authenticated %}
+                    <li><a href="{% url 'moulatitcircuit:Prisencharge' %}">Ajouter Des Infos</a></li>
                     <li><a href="{% url 'moulatitcircuit:Circtuitest' %}">Ajouter Un Circuit</a></li>
                     <li><a href="{% url 'moulatitcircuit:HomeUpdate' pk=1 %}">Modifier Les Infos</a></li>
                 {% endif %}
             </ul>
         </div>
     </nav>
+    <div class="homemarg"></div>
     {% block content %}
 
     {% endblock content%}
-<footer>
+<footer style="background: url('{% static '/images/kaktus.png'%}')" id="contact">
     <div class="mycontainer">
         <div class="divers  col-xs-12 col-sm-4 col-md-4 col-lg-4">
-            <h1>Social</h1>
-            <p>Retrouvez nous sur les réseaux sociaux</p>
-            <a href="{{ footer.facebook }}" class="btneffect">Facebook</a>
-            <a href="{{ footer.Instagram }}" class="btneffect">Instagram</a>
+            <div class="content">
+                <h1>Social</h1>
+                <p>Retrouvez nous sur les réseaux sociaux</p>
+                <a href="{{ footer.facebook }}" class="btneffect">Facebook</a>
+                <a href="{{ footer.Instagram }}" class="btneffect">Instagram</a>
+            </div>
         </div>
         <div class="divers  col-xs-12 col-sm-4 col-md-4 col-lg-4">
+           <div class="content">
             <h1>Cordonnées</h1>
             <p>Email: {{ footer.Email }}</p>
             <p>Tél / Fax : {{ footer.Fax }}</p>
             <p>Adress: {{ footer.Mobile }}</p>
+           </div>
         </div>
         <div class="divers  col-xs-12 col-sm-4 col-md-4 col-lg-4">
-            <h1>Adresse</h1>
-            <p>{{ footer.Adress }}</p>
+            <div class="content">
+                <h1>Adresse</h1>
+                <p>{{ footer.Adress }}</p>
+            </div>
         </div>
     </div>
 </footer>

@@ -126,7 +126,7 @@ $(document).on('click', '.formset_row input', function(e) {
           $image.cropper({
             viewMode: 1,
             aspectRatio: 1/1,
-            minCropBoxWidth: 1000,
+            minCropBoxWidth: 900,
             minCropBoxHeight: 700,
             ready: function () {
               $image.cropper("setCanvasData", canvasData);
@@ -155,6 +155,7 @@ $(document).on('click', '.formset_row input', function(e) {
         $("#id_imageupload_set-"+myindex+"-y").val(cropData["y"]);
         $("#id_imageupload_set-"+myindex+"-width").val(cropData["height"]);
         $("#id_imageupload_set-"+myindex+"-height").val(cropData["width"]);
+        $('#never').click();
       });
 });
 

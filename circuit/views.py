@@ -89,7 +89,7 @@ class CircuitList(ListView):
 
 
 
-class CircuitDetail(LoginRequiredMixin,DetailView):
+class CircuitDetail(DetailView):
     model = Circuit
     template_name = 'circtuit/detail.html'
 
@@ -170,7 +170,7 @@ class PrisenchargeList(ListView):
     model = lesinfos
     template_name = 'circtuit/lesinfos.html'
 
-class PrisenchargeDeleteView(DeleteView):
+class PrisenchargeDeleteView(LoginRequiredMixin,DeleteView):
     model = lesinfos
     template_name = 'circtuit/delete.html'
     success_url = reverse_lazy('moulatitcircuit:PrisenchargeList')
