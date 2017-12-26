@@ -4,47 +4,10 @@
 
 {% endblock %}
 {% block content %}
-    <div id="carousel" class="carousel slide carousel-fade" data-ride="carousel">
-    <ol class="carousel-indicators">
-        <li data-target="#carousel" data-slide-to="0" class="active"></li>
-        <li data-target="#carousel" data-slide-to="1"></li>
-        <li data-target="#carousel" data-slide-to="2"></li>
-    </ol>
-    <!-- Carousel items -->
-    <div class="carousel-inner">
-        {% if footer.img_1%}
-            <div class="active item" style="background: url('{{ footer.img_1.url }}') no-repeat">
-                <div class="slidercontent">
-                <p>{{ footer.description1 }}</p>
-                </div>
-                <div class="overlay"></div>
-            </div>
-        {% endif %}
-        {% if footer.img_2%}
-            <div class="item" style="background: url('{{ footer.img_2.url }}') no-repeat">
-                <div class="slidercontent">
-                    <p>{{ footer.description2 }}</p>
-                </div>
-                <div class="overlay"></div>
-            </div>
-        {% endif %}
-        {% if footer.img_3%}
-            <div class="item"  style="background: url('{{ footer.img_3.url }}') no-repeat">
-                <div class="slidercontent">
-                    <p>{{ footer.description3 }}</p>
-                </div>
-                <div class="overlay"></div>
-            </div>
-        {% endif %}
-    </div>
-    <!-- Carousel nav -->
-    <a class="carousel-control left" href="#carousel" data-slide="prev">&lsaquo;</a>
-    <a class="carousel-control right" href="#carousel" data-slide="next">&rsaquo;</a>
-</div>
-
+<div class="allcontent">
     <div class="mycontainer" id="Nosircuit">
         <div class="circtui_aceuille">
-        <h1 style="text-align: center">Nos Circuits</h1>
+        <h1 style="text-align: center;color: #fff">Nos Circuits</h1>
         <div class="linediveder"></div>
             <div class="row circuit_preview">
                 {% for foo in object_list %}
@@ -58,6 +21,7 @@
                             <p>{{ foo.Description|linebreaks }}</p>
                         </div>
                         <a href="{{ foo.get_absolute_url }}" class="btneffect">PLus De Détaille</a>
+                                                            <div class="linebreak"></div>
                         </div>
                     </div>
                 {% endfor %}
@@ -67,15 +31,16 @@
         </div>
     </div>
     <div id="story">
-        <h1 style="text-align: center">Mots</h1>
+        <h1 style="text-align: center;color: #fff">Mots</h1>
         <div class="linediveder"></div>
-        <div class="trianglcontainer">
-            <div class="clip-animation" style="background: url('{% static '/images/kaktus.png'%}')"></div>
-        </div>
+
         <p class="textsotr">
             {{ footer.histoire}}
         </p>
     </div>
-                                    <div class="linebreak"></div>
+    <div class="linebreak"></div>
+</div>
+{% endblock content%}
+{% block script %}
 
-{% endblock %}
+{% endblock script%}

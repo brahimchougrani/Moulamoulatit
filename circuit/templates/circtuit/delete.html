@@ -3,10 +3,12 @@
 
 {% endblock %}
 {% block content %}
-    <form action="" method="post">
-        {% csrf_token %}
-        <p>Êtes-vous sûr que Vous voulez supprimer {{ object }}</p>
-        <a href="{{ object.get_absolute_url }}">Non</a>
-        <input type="submit" value="Supprimer">
-    </form>
+    <div class="allcontent mycontainer" style="color: #fff">
+        <form action="" method="post">
+            {% csrf_token %}
+            <p>Êtes-vous sûr que Vous voulez supprimer {{ object }}</p>
+            <a href="{{ object.get_absolute_url }}">Non</a>
+            <input type="submit" value="Supprimer" style="background: #fff;color: #000;border: none; padding: 10px 20px">
+        </form>
+    </div>
 {% endblock %}

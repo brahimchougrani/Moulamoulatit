@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="{% static 'css/style.css'%}">
+
 </head>
 <body>
     <nav id="homenav">
@@ -35,7 +36,7 @@
     {% block content %}
 
     {% endblock content%}
-<footer style="background: url('{% static '/images/kaktus.png'%}')" id="contact">
+<footer  id="contact">
     <div class="mycontainer">
         <div class="divers  col-xs-12 col-sm-4 col-md-4 col-lg-4">
             <div class="content">
@@ -49,8 +50,8 @@
            <div class="content">
             <h1>Cordonnées</h1>
             <p>Email: {{ footer.Email }}</p>
-            <p>Tél / Fax : {{ footer.Fax }}</p>
-            <p>Adress: {{ footer.Mobile }}</p>
+            <p>Fax : {{ footer.Fax }}</p>
+            <p>Tèlephone: {{ footer.Mobile }}</p>
            </div>
         </div>
         <div class="divers  col-xs-12 col-sm-4 col-md-4 col-lg-4">
@@ -61,13 +62,35 @@
         </div>
     </div>
 </footer>
-
+<div id="bg">
+        {% if footer.img_1%}
+            <div class="item" style="background:url('{{ footer.img_1.url }}')" id="img2"></div>
+        {% endif %}
+        {% if footer.img_2%}
+            <div class="item" style="background:url('{{ footer.img_2.url }}')" id="img2"></div>
+        {% endif %}
+        {% if footer.img_3 %}
+                <div class="item" style="background: url('{{ footer.img_3.url }}')" id="img3"></div>
+        {% endif %}
+<div class="overlay"></div>
+</div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 {% block script %}
 
 {% endblock script%}
 <script src="{% static '/js/myapp.js' %}"></script>
-
+    <script>
+        i=$('.item').length-1;
+        window.setInterval(function(){
+            $('.item').eq(i).fadeOut();
+            if (i ===0){
+                i=$('.item').length-1;
+                $('.item').fadeIn()
+            }else {
+                i--;
+            }
+        }, 3000);
+    </script>
 </body>
 </html>
