@@ -16,7 +16,7 @@
                     <div class="linebreak"></div>
                 </div>
             {% endfor %}
-            {% if is_authenticated %}
+            {% if user.is_authenticated %}
                 <div class="linebreak"></div>
                     <a href="{% url 'moulatitcircuit:PrisenchargeUpdate' pk=foo.pk %}">Modifier</a>
                     <a href="{% url 'moulatitcircuit:PrisenchargeDeleteView' pk=foo.pk %}">Supprimer</a>

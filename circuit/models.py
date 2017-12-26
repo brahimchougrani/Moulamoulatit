@@ -68,13 +68,13 @@ class HomeDetail(models.Model):
     Fax = models.IntegerField()
     Mobile = models.IntegerField()
     Adress = models.CharField(max_length=255)
-    img_1 = models.ImageField()
-    description1 = models.TextField()
-    img_2 = models.ImageField()
-    description2 = models.TextField()
-    img_3= models.ImageField()
-    description3 = models.TextField()
-    histoire = models.TextField()
+    img_1 = models.ImageField(blank=True,null=True)
+    description1 = models.TextField(blank=True,null=True)
+    img_2 = models.ImageField(blank=True,null=True)
+    description2 = models.TextField(blank=True,null=True)
+    img_3= models.ImageField(blank=True,null=True)
+    description3 = models.TextField(blank=True,null=True)
+    histoire = models.TextField(blank=True,null=True)
     def __str__(self):
         return self.Adress
 

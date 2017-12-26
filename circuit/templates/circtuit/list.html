@@ -12,24 +12,30 @@
     </ol>
     <!-- Carousel items -->
     <div class="carousel-inner">
-        <div class="active item" style="background: url('{{ footer.img_1.url }}') no-repeat">
-            <div class="slidercontent">
-            <p>{{ footer.description1 }}</p>
+        {% if footer.img_1%}
+            <div class="active item" style="background: url('{{ footer.img_1.url }}') no-repeat">
+                <div class="slidercontent">
+                <p>{{ footer.description1 }}</p>
+                </div>
+                <div class="overlay"></div>
             </div>
-            <div class="overlay"></div>
-        </div>
-        <div class="item" style="background: url('{{ footer.img_2.url }}') no-repeat">
-            <div class="slidercontent">
-                <p>{{ footer.description2 }}</p>
+        {% endif %}
+        {% if footer.img_2%}
+            <div class="item" style="background: url('{{ footer.img_2.url }}') no-repeat">
+                <div class="slidercontent">
+                    <p>{{ footer.description2 }}</p>
+                </div>
+                <div class="overlay"></div>
             </div>
-            <div class="overlay"></div>
-        </div>
-        <div class="item"  style="background: url('{{ footer.img_3.url }}') no-repeat">
-            <div class="slidercontent">
-                <p>{{ footer.description3 }}</p>
+        {% endif %}
+        {% if footer.img_3%}
+            <div class="item"  style="background: url('{{ footer.img_3.url }}') no-repeat">
+                <div class="slidercontent">
+                    <p>{{ footer.description3 }}</p>
+                </div>
+                <div class="overlay"></div>
             </div>
-            <div class="overlay"></div>
-        </div>
+        {% endif %}
     </div>
     <!-- Carousel nav -->
     <a class="carousel-control left" href="#carousel" data-slide="prev">&lsaquo;</a>

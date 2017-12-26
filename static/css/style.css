@@ -18,7 +18,7 @@ body{
     border: none;
 }
 #homenav{
-    background: #FFC107;
+    background: #008feb;
     color: #fff;
     height: 66px;
     position: fixed;
@@ -67,7 +67,7 @@ img#logo {
 .linediveder {
     width: 50px;
     height: 3px;
-    background: #ffd34d;
+    background: #008feb;
     display: block;
     margin: 0% auto 2%;
 }
@@ -117,9 +117,9 @@ input#subm {
     transition: all 0.142s ease;
 }
 .btneffect:hover{
-    background: #FFC107;
+    background: #008feb;
     color: #181818;
-    border-color:#FFC107;
+    border-color:#008feb;
 }
 .circuitext p {
     font-size: 14px;
@@ -322,7 +322,7 @@ footer {
 }
 .content {
     height: 71%;
-    background: rgb(255, 193, 7);
+    background: #008feb;
     padding: 1%;
     text-align: center;
     color: #fff;
