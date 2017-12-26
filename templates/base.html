@@ -14,15 +14,17 @@
 <body>
     <nav id="homenav">
         <div class="mycontainer">
-            <a href='{%url 'moulatitcircuit:CircuitList'%}' id="logolink"><img src="{{footer.logo.url}}" id="logo" alt="Moulamoulatit logo"> MoulaMoulatit </a>
+            <a href='{%url 'moulatitcircuit:CircuitList'%}' id="logolink"><img src="{{footer.logo.url}}" id="logo" alt="Moulamoulatit logo"> {% if footer.logo_name %}{{ footer.logo_name }}{% endif %} </a>
             <ul>
                 <li><a href="{%url 'moulatitcircuit:CircuitList'%}">Accueil</a></li>
                 <li><a href="{%url 'moulatitcircuit:CircuitList'%}#Nosircuit">Nos Circuits</a></li>
+                <li><a href="{%url 'moulatitcircuit:DetailMot' pk=1%}">Histoire</a></li>
                 <li><a href="{%url 'moulatitcircuit:PrisenchargeList'%}#PrisOncharge">Prise en charge</a></li>
                 <li><a href="{%url 'moulatitcircuit:PrisenchargeList'%}">Infos-voyage</a></li>
                 <li><a href="#contact">Contact</a></li>
                 {% if user.is_authenticated %}
                     <li><a href="{% url 'moulatitcircuit:Prisencharge' %}">Ajouter Des Infos</a></li>
+                    <li><a href="{% url 'moulatitcircuit:UpdateteMot' pk=1 %}">Modifier Histoire</a></li>
                     <li><a href="{% url 'moulatitcircuit:Circtuitest' %}">Ajouter Un Circuit</a></li>
                     <li><a href="{% url 'moulatitcircuit:HomeUpdate' pk=1 %}">Modifier Les Infos</a></li>
                 {% endif %}

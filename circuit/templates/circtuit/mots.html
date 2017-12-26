@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Histoire
+{% endblock title %}
+
+{% block content %}
+<div class="mycontainer">
+    <h1 style="text-align: center">{{ object.titre }}</h1>
+    <div class="linediveder"></div>
+    <p class="histoiretext">{{ object.mots }}</p>
+    {% if user.is_authenticated %}
+    <a href="{% url 'moulatitcircuit:UpdateteMot' pk=1 %}">Modifier</a>
+    {% endif %}
+</div>
+{% endblock content %}

@@ -9,7 +9,7 @@ from django.urls import reverse_lazy
 from django.views.generic import CreateView, UpdateView, DeleteView, DetailView, ListView, TemplateView
 
 from .forms import CircuitwithDetail, FamilyMemberFormSet, CircuitwithPrisenCharge
-from .models import Circuit, HomeDetail, lesinfos
+from .models import Circuit, HomeDetail, lesinfos, Mots
 
 
 class CirctuiCreate(LoginRequiredMixin,CreateView):
@@ -100,14 +100,14 @@ class CircuitDetail(DetailView):
 class HomeInfo(LoginRequiredMixin,CreateView):
     model = HomeDetail
     template_name = 'circtuit/myform.html'
-    fields = ['logo', 'facebook','Instagram','Email','Fax','Mobile','Adress','img_1','description1','img_2','description2','img_3','description3','histoire']
+    fields = ['logo','logo_name', 'facebook','Instagram','Email','Fax','Mobile','Adress','img_1','description1','img_2','description2','img_3','description3','histoire']
     success_url = ('.')
 
 
 class HomeUpdate(LoginRequiredMixin,UpdateView):
     model = HomeDetail
     template_name = 'circtuit/myform.html'
-    fields = ['logo', 'facebook','Instagram','Email','Fax','Mobile','Adress','img_1','description1','img_2','description2','img_3','description3','histoire']
+    fields = ['logo', 'logo_name','facebook','Instagram','Email','Fax','Mobile','Adress','img_1','description1','img_2','description2','img_3','description3','histoire']
     success_url = ('.')
 
 class Prisencharge(LoginRequiredMixin,CreateView):
@@ -174,3 +174,16 @@ class PrisenchargeDeleteView(LoginRequiredMixin,DeleteView):
     model = lesinfos
     template_name = 'circtuit/delete.html'
     success_url = reverse_lazy('moulatitcircuit:PrisenchargeList')
+
+
+class UpdateteMot(LoginRequiredMixin,UpdateView):
+    model = Mots
+    fields = ('titre','mots',)
+    template_name = 'circtuit/myform.html'
+    success_url = reverse_lazy('moulatitcircuit:CircuitList')
+
+
+class DetailMot(DetailView):
+    model = Mots
+    template_name = 'circtuit/mots.html'
+    queryset = Mots.objects.all()

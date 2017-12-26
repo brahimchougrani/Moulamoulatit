@@ -62,6 +62,7 @@ class ImageUpload(models.Model):
 
 class HomeDetail(models.Model):
     logo = models.ImageField()
+    logo_name = models.CharField(max_length=255,blank=True,null=True)
     facebook = models.URLField()
     Instagram = models.URLField()
     Email = models.EmailField()
@@ -74,9 +75,14 @@ class HomeDetail(models.Model):
     description2 = models.TextField(blank=True,null=True)
     img_3= models.ImageField(blank=True,null=True)
     description3 = models.TextField(blank=True,null=True)
-    histoire = models.TextField(blank=True,null=True)
+    histoire = models.TextField(blank=True,null=True,verbose_name='Mots')
     def __str__(self):
         return self.Adress
 
 
+class Mots(models.Model):
+    titre = models.CharField(max_length=255)
+    mots = models.TextField(blank=True,null=True)
 
+    def __str__(self):
+        return self.titre

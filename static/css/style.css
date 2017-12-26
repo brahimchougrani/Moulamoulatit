@@ -313,7 +313,6 @@ body,
     width: 50% !important;
 }
 footer {
-    margin: 100px 0 0;
     background-size: cover !important;
     background-position: center !important;
     height: 50%;
@@ -364,4 +363,11 @@ footer {
 div#story {
     padding: 2% 0;
     background: #f7f7f7;
+}
+p.histoiretext {
+    column-count: 2;
+    line-height: 36px;
+    font-size: 18px;
+    font-weight: 300;
+    column-gap: 69px;
 }
