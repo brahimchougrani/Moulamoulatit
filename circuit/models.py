@@ -63,9 +63,9 @@ class ImageUpload(models.Model):
 class HomeDetail(models.Model):
     logo = models.ImageField()
     logo_name = models.CharField(max_length=255,blank=True,null=True)
-    facebook = models.URLField()
-    Instagram = models.URLField()
-    Email = models.EmailField()
+    facebook = models.URLField(blank=True,null=True)
+    Instagram = models.URLField(blank=True,null=True)
+    Email = models.EmailField(blank=True,null=True)
     Fax = models.CharField(max_length=255,blank=True,null=True)
     Mobile = models.CharField(max_length=255,blank=True,null=True)
     Adress = models.CharField(max_length=255)

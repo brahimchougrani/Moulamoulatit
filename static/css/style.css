@@ -6,6 +6,7 @@
 }
 body{
     font-family: 'Cairo', sans-serif;
+    overflow-x: hidden;
 }
 .mycontainer{
     width: 85%;
@@ -252,7 +253,8 @@ display: inline-block;
     -o-transition: all 0.145s ease;
     transition: all 0.145s ease;
     margin-bottom: 3%;
-    background: #fff;
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
 }
 .tchep:hover{
         box-shadow: 1px 2px 49px -3px rgba(0, 0, 0, 0.58);
@@ -385,4 +387,58 @@ p.histoiretext {
     font-size: 18px;
     font-weight: 300;
     column-gap: 69px;
+}
+.slide_1 {
+    display: block;
+    padding: 23px 0;
+    text-align: center;
+    height: 650px;
+}
+
+
+
+.slide_1 p {
+    position: absolute;
+    top: 225px;
+    left: 50%;
+    display: none;
+    -webkit-transition: all 0.145s ease;
+    -moz-transition: all 0.145s ease;
+    -ms-transition: all 0.145s ease;
+    -o-transition: all 0.145s ease;
+    transition: all 0.145s ease;
+    right: 0;
+    color: #fff;
+    font-size: 25px;
+    width: 70%;
+    margin: auto;
+}
+.slide_1_effect{
+    left: 0!important;
+}
+.slide_1 a {
+    position: relative;
+    top: 350px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: inline-block;
+    padding: 18px 27px;
+    color: #fff;
+    text-decoration: none;
+    border: 1px solid #008feb;
+    -webkit-transition: all 0.2s ease;
+    -moz-transition: all 0.2s ease;
+    -ms-transition: all 0.2s ease;
+    -o-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+    margin: 1% 6px;
+    font-size:20px;
+}
+.slide_1 a i {
+    font-size:20px;
+}
+.slide_1 a:hover{
+    background: #008feb;
+    color: #fff;
 }

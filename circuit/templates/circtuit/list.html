@@ -5,6 +5,16 @@
 {% endblock %}
 {% block content %}
 <div class="allcontent">
+    <div class="slide_1">
+        <p>{{ footer.description1 }}</p>
+        <p>{{ footer.description2 }}</p>
+        <p>{{ footer.description3 }}</p>
+        <div class="block">
+            <a href="{{ footer.facebook }}" ><i class="fa fa-facebook"></i></a>
+            <a href="{{ footer.Instagram }}" ><i class="fa fa-instagram"></i></a>
+        </div>
+        <a href="#Nosircuit">Nos Circuit</a>
+    </div>
     <div class="mycontainer" id="Nosircuit">
         <div class="circtui_aceuille">
         <h1 style="text-align: center;color: #fff">Nos Circuits</h1>
@@ -18,7 +28,7 @@
                         </div>
                         <div class="circdetail">
                             <a href="{{ foo.get_absolute_url }}">{{ foo.Titre }}</a>
-                            <p>{{ foo.Description|linebreaks }}</p>
+                            <p>{{ foo.Description|linebreaks|truncatewords:20  }}</p>
                         </div>
                         <a href="{{ foo.get_absolute_url }}" class="btneffect">PLus De Détaille</a>
                                                             <div class="linebreak"></div>
@@ -42,5 +52,21 @@
 </div>
 {% endblock content%}
 {% block script %}
+<script>
+        j=0;
+    window.setInterval(function(){
+        if(j >= 0 ){
+            $('.slide_1 p').fadeOut(0);
+            $('.slide_1 p').removeClass('slide_1_effect');
 
+        }
+        $('.slide_1 p').eq(j).fadeIn();
+        $('.slide_1 p').eq(j).addClass('slide_1_effect');
+        if (j === $(".slide_1 p").length-1){
+            j=0;
+        }else {
+            j++;
+        }
+    }, 3000);
+</script>
 {% endblock script%}
