@@ -41,30 +41,29 @@ $(document).ready(function () {
                 '</div>'
             );
         });
-        if($('#wrapper .formset_row').length===0){
-                i = 0;
-            }else{
-                i = $('#wrapper .imgnum').length-1;
-            }
-        $("#costum_fs").click(function(){
-            i++;
-            $("#id_circtuidetail_set-TOTAL_FORMS").attr("value",i+1);
+
+        inc = $('#wrapper .imgnum').length-1;
+        $(document).on('click','#costum_fs',function(e){
+            inc++;
+            alert(inc);
+            incid = inc+1;
+            $("#id_circtuidetail_set-TOTAL_FORMS").attr("value",incid);
             $("#wrapper").append('' +
                 '<hr>'+
                 '<div class="imgnum">'+
                     '<div>' +
                         '<label for="id_circtuidetail_set-'+i+'-Circuit">Titre circuit </label>'+
-                        '<input type="hidden" name="circtuidetail_set-'+i+'-Circuit" id="id_circtuidetail_set-'+i+'-Circuit"> ' +
-                        '<input type="hidden" name="circtuidetail_set-'+i+'-id" id="id_circtuidetail_set-'+i+'-id">' +
-                        '<input type="text" name="circtuidetail_set-'+i+'-titre_circuit" id="id_circtuidetail_set-'+i+'-titre_circuit" maxlength="255">' +
+                        '<input type="hidden" name="circtuidetail_set-'+inc+'-Circuit" id="id_circtuidetail_set-'+inc+'-Circuit"> ' +
+                        '<input type="hidden" name="circtuidetail_set-'+inc+'-id" id="id_circtuidetail_set-'+inc+'-id">' +
+                        '<input type="text" name="circtuidetail_set-'+inc+'-titre_circuit" id="id_circtuidetail_set-'+inc+'-titre_circuit" maxlength="255">' +
                     '</div>'+
                     '<div>'+
-                        '<label for="id_circtuidetail_set-'+i+'-Description">Description </label>'+
-                       '<textarea name="circtuidetail_set-'+i+'-Description" rows="10" id="id_circtuidetail_set-'+i+'-Description" cols="40"></textarea>'+
+                        '<label for="id_circtuidetail_set-'+inc+'-Description">Description </label>'+
+                       '<textarea name="circtuidetail_set-'+inc+'-Description" rows="10" id="id_circtuidetail_set-'+inc+'-Description" cols="40"></textarea>'+
                     '</div>'+
                     '<div>'+
-                        '<label for="id_circtuidetail_set-'+i+'-DELETE">Supprimer</label>'+
-                        '<input type="checkbox" name="circtuidetail_set-'+i+'-DELETE" id="id_circtuidetail_set-'+i+'-DELETE">'+
+                        '<label for="id_circtuidetail_set-'+inc+'-DELETE">Supprimer</label>'+
+                        '<input type="checkbox" name="circtuidetail_set-'+inc+'-DELETE" id="id_circtuidetail_set-'+inc+'-DELETE">'+
                     '</div>'+
                 '</div>'
             );

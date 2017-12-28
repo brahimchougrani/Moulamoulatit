@@ -60,8 +60,7 @@ class PhotoForm(forms.ModelForm):
                         resized_image = cropped_image.resize((500, 700), Image.ANTIALIAS)
                         resized_image.save(photo.relationship.path)
                         return super(PhotoForm, self).save(*args, **kwargs)
-
-
+        return super(PhotoForm, self).save(*args, **kwargs)
 
 
 CircuitwithDetail = inlineformset_factory(Circuit, CirctuiDetail,form=CirctuiForm,extra=1)

@@ -7,7 +7,6 @@ from django.urls import reverse
 class Circuit(models.Model):
     Titre = models.CharField(max_length=255)
     Description = models.TextField(null=True)
-    img = models.ImageField()
     def __str__(self):
         return self.Titre
 

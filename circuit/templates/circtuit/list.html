@@ -27,7 +27,7 @@
                             <img src="{{ foo.get_first_image}}" alt="">
                         </div>
                         <div class="circdetail">
-                            <a href="{{ foo.get_absolute_url }}">{{ foo.Titre }}</a>
+                            <h1><a href="{{ foo.get_absolute_url }}">{{ foo.Titre }}</a></h1>
                             <p>{{ foo.Description|linebreaks|truncatewords:20  }}</p>
                         </div>
                         <a href="{{ foo.get_absolute_url }}" class="btneffect">PLus De Détaille</a>
@@ -67,6 +67,6 @@
         }else {
             j++;
         }
-    }, 3000);
+    }, 2000);
 </script>
 {% endblock script%}

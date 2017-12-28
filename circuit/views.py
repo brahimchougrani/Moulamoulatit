@@ -14,7 +14,7 @@ from .models import Circuit, HomeDetail, lesinfos, Mots
 
 class CirctuiCreate(LoginRequiredMixin,CreateView):
     model = Circuit
-    fields = ['Titre','Description','img']
+    fields = ['Titre','Description',]
     template_name = 'circtuit/form.html'
 
     def get_context_data(self, **kwargs):
@@ -33,21 +33,21 @@ class CirctuiCreate(LoginRequiredMixin,CreateView):
         context = self.get_context_data()
         bookimage_form = context['bookimage_form']
         familymembers = context['familymembers']
-        with transaction.atomic():
+        if bookimage_form.is_valid() and familymembers.is_valid():
+            print('is valid')
             self.object = form.save()
-            if bookimage_form.is_valid() and familymembers.is_valid():
-                bookimage_form.instance = self.object
-                bookimage_form.save()
-                familymembers.instance = self.object
-                familymembers.save()
-            else:
-                return self.render_to_response(self.get_context_data(form=form))
+            bookimage_form.instance = self.object
+            bookimage_form.save()
+            familymembers.instance = self.object
+            familymembers.save()
+        else:
+            return self.render_to_response(self.get_context_data(form=form))
         return super(CirctuiCreate, self).form_valid(form)
 
 
 class CircuitUpdate(LoginRequiredMixin,UpdateView):
     model = Circuit
-    fields = ['Titre','Description','img']
+    fields = ['Titre','Description',]
     template_name = 'circtuit/form.html'
 
     def get_context_data(self, **kwargs):
