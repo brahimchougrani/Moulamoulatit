@@ -25,7 +25,7 @@ SECRET_KEY = '6z@x899wn$t80^+@0k35bnf7ae+@%024vl6cn^1jo__p)$2inl'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['104.236.22.174']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -77,14 +77,11 @@ WSGI_APPLICATION = 'moulamoulatit.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'moula',
-        'USER': 'brahim',
-        'PASSWORD': 'bismilah123B!',
-        'HOST': 'localhost',   # Or an IP Address that your DB is hosted on
-        'PORT': '',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
