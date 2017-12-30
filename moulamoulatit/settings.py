@@ -25,7 +25,7 @@ SECRET_KEY = '6z@x899wn$t80^+@0k35bnf7ae+@%024vl6cn^1jo__p)$2inl'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["104.236.124.220"]
 
 
 # Application definition
@@ -77,8 +77,12 @@ WSGI_APPLICATION = 'moulamoulatit.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'myproject',
+        'USER': 'myprojectuser',
+        'PASSWORD': 'password',
+        'HOST': 'localhost',
+        'PORT': '',
     }
 }
 
